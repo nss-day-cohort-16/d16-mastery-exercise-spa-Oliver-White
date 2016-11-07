@@ -8,7 +8,7 @@ var old_carlot = (function() {
 		    reject(error);
 	    });
   });
-})(old_carlot | {});
+})(old_carlot || {});
 
 // console.log("promise", old_carlot );
 
