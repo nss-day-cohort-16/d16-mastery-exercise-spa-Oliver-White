@@ -1,0 +1,13 @@
+#container {
+	clear: both;
+}
+
+.card {
+	border: 1px solid black;
+}
+
+.clicked {
+	border: 5px dotted yellow;
+	background-color: purple;
+	color: green;
+}
