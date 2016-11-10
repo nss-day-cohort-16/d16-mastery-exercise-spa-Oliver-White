@@ -2,8 +2,8 @@ h1 {
 	text-align: center;
 }
 .styled {
-	border: solid black 2px;
-	background-color: purple;
+	border: solid black 1px;
+	background-color: blue;
 	color:white;
 	text-align: center;
 }
