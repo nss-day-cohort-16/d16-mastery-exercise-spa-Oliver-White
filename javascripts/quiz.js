@@ -2,9 +2,9 @@
 var Carlot = (function(oldCarlot){
 
     oldCarlot.activateEvents = function(stuff) {
-      var carList = document.getElementsByClassName("styled");
-      for (var j = 0; j < carList.length; j++){
-        carList[j].addEventListener('click', addBorder);
+      var cars = document.getElementsByClassName("styled");
+      for (var j = 0; j < cars.length; j++){
+        cars[j].addEventListener('click', addBorder);
       }
       function addBorder() {
         if (event.currentTarget.className === "col-sm-4 styled"){
@@ -16,9 +16,9 @@ var Carlot = (function(oldCarlot){
         addText();
       }
       function addText () {
-        var carDivElements = document.getElementsByClassName("description");
-        for (var z = 0; z < carDivElements.length; z++){
-          carDivElements[z].addEventListener("click", changeText)
+        var carStuff = document.getElementsByClassName("description");
+        for (var a = 0; a < carDivElements.length; a++){
+          carStuff[a].addEventListener("click", changeText)
         }
         changeText();
       }
@@ -31,7 +31,7 @@ var Carlot = (function(oldCarlot){
         }
 
         function changeDescription (spot) {
-        document.getElementById('input').addEventListener('keydown', write);
+        document.getElementById('input').addEventListener('keyup', write);
         function write() {
           spot.innerHTML = document.getElementById("input").value;
         }
