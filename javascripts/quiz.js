@@ -1,34 +1,41 @@
-// console.log("data", old_carlot);
+"use strict";
+var Carlot = (function(oldCarlot){
 
-// var old_carlot = (function() {
-// 	return new Promise( (resolve, reject) => {
-// 		$.ajax({
-// 		  url: "json/inventory.json"
-// 		  }).done( function (data) {
-// 		    resolve(data);
-// 	    }).fail( (error) => {
-// 		    reject(error);
-// 	    });
-//   });
-// })(old_carlot || {});
+    oldCarlot.activateEvents = function(stuff) {
+      var carList = document.getElementsByClassName("styled");
+      for (var j = 0; j < carList.length; j++){
+        carList[j].addEventListener('click', addBorder);
+      }
+      function addBorder() {
+        if (event.currentTarget.className === "col-sm-4 styled"){
+        Carlot.changeBorder(event.currentTarget);
+        }
+        else if (event.currentTarget.className === "col-sm-4 styled thickBorder"){
+          Carlot.resetBorder(event.currentTarget);
+        }
+        addText();
+      }
+      function addText () {
+        var carDivElements = document.getElementsByClassName("description");
+        for (var z = 0; z < carDivElements.length; z++){
+          carDivElements[z].addEventListener("click", changeText)
+        }
+        changeText();
+      }
+        function changeText() {
+          document.getElementById("input").value = " ";
+          document.getElementById('input').focus();
+          if(event.target.className === "description"){
+            changeDescription(event.target);
+          };
+        }
 
-
-// var carlot = $.get("json/inventory.json", function (data) {console.log(data);});
-
-
-// var carlot = (function() { 
-//   var inventory = "";
-//   inventory = $.get("json/inventory.json", function (data) {console.log(data);});
-//   })(carlot || {});
-
-
-
-
-// $(document).ready(() => {
-//   $.ajax({ url: "json/inventory.json" })
-//     .done((data) => {
-//       // Do DOM manipulation stuff here
-//   }.fail( (error) => {
-//     console.log(`Error getting inventory:' ${error}`);
-//   }
-// });
+        function changeDescription (spot) {
+        document.getElementById('input').addEventListener('keydown', write);
+        function write() {
+          spot.innerHTML = document.getElementById("input").value;
+        }
+      }
+    }
+    return oldCarlot;
+})(Carlot || {});
